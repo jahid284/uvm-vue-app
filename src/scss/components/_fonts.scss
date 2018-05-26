@@ -1,0 +1,62 @@
+/*********************
+FONTS
+*********************/
+/* Tiempos Headline */
+@font-face {
+  font-family: 'TiemposHeadline';
+  src: url(../../src/fonts/TiemposHeadline-Regular.eot);
+  src: url(../../src/fonts/TiemposHeadline-Regular.woff);
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'TiemposHeadline';
+  src: url(../../src/fonts/TiemposHeadline-Semibold.eot);
+  src: url(../../src/fonts/TiemposHeadline-Semibold.woff);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'TiemposHeadline-Black';
+  src: url('../../src/fonts/TiemposHeadline-Black.eot?#iefix') format('embedded-opentype'),  url('../../src/fonts/TiemposHeadline-Black.otf')  format('opentype'),
+	     url('../../src/fonts/TiemposHeadline-Black.woff') format('woff'), url('../../src/fonts/TiemposHeadline-Black.ttf')  format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Gobold */
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('../../src/fonts/Gobold Regular.eot?#iefix') format('embedded-opentype'),  url('../../src/fonts/Gobold Regular.otf')  format('opentype'),url('../../src/fonts/Gobold Regular.woff') format('woff'), url('../../src/fonts/Gobold Regular.ttf')  format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Gobold';
+  src: url('../../src/fonts/Gobold Thin.eot?#iefix') format('embedded-opentype'),url('../../src/fonts/Gobold Thin.woff') format('woff'), url('../../src/fonts/Gobold Thin.ttf')  format('truetype');
+  font-weight: 300;
+}
+
+
+/* Brown Pro */
+@font-face {
+  font-family: 'BrownPro';
+  src: url(../fonts/BrownPro-Regular.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'BrownPro';
+  src: url(../fonts/BrownPro-Thin.otf);
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'BrownPro';
+  src: url(../fonts/BrownPro-Regular.otf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'BrownPro';
+  src: url(../fonts/BrownPro-RegularAlt.otf);
+  font-weight: 400;
+}

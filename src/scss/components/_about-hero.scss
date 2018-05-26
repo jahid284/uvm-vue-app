@@ -1,0 +1,138 @@
+//reset swipper
+.swiper-button-prev {
+    left: 0;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    background-image: none !important;
+    color: lighten($c-white, 100);
+    background: rgba(0,0,0,.4);
+    width: 110px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: $ff-gobold;
+    font-size: $fz-medium;
+    text-transform: uppercase;
+    transition: all .5s ease-in;
+    img {
+      width: 22px;
+    }
+    &:hover {
+      background: $c-green-2;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    background-color: $c-grey-mid;
+    opacity: 1;
+    border: 5px solid transparent;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $c-green-2;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 3px;
+  }
+
+.about-hero {
+  padding-top: 0;
+  padding-bottom: 4.375rem;
+  .fullwidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial !important;
+  }
+  .swiper-slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 150px 0 140px;
+    background-position: 50% 35%;
+  }
+  .swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.2);
+  }
+  .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 7.5px;
+  }
+  
+  .slider-caption {
+    max-width: 590px;
+    margin: 0 auto;
+    text-align: center;
+    color: lighten($c-white,100);
+    h2 {
+      font-family: $ff-gobold;
+      font-size: $fz-header-large;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1;
+      font-weight: normal;
+    }
+    p {
+      font-family: $ff-tiemposheadline-black;
+      font-size: $fz-large;
+      line-height: 1.9;
+    }
+  }
+}
+@media(max-width: 539px) {
+  .about-hero .slider-caption h2 {
+    line-height: 1.3;
+  }
+  .about-hero .slider-caption p {
+    margin-top: 0;
+  }
+}
+@media(max-width: 815px) {
+    .swiper-pagination-fraction, .swiper-pagination-custom, 
+    .swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: 45px;
+  }
+  .about-hero {
+    padding-bottom: $fz-header-medium;
+  }
+  .about-hero .swiper-button-prev, .about-hero .swiper-button-next {
+    display: none;
+  }
+  .about-hero .swiper-slide {
+    padding: 100px 0 70px;
+  }
+}
+@media(min-width: 815px) {
+  .about-hero .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+    display: none;
+  }
+}
+
+.about-hero .fullwidth {
+  position: relative;
+}
+.about-hero .fullwidth::after {
+    display: block;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background: url(/assets/hero-texture.png) 0% 0% no-repeat;
+    background-size: cover;
+    z-index: 4;
+}
+
+
+
+

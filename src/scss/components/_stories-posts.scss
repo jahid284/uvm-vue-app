@@ -1,0 +1,400 @@
+@mixin storyTileTheme($color, $image) {
+  .story-tile__icon{
+    background-color: $color;
+    background-image: url($image);
+  }
+  .story-tile__border{
+    border-color: $color;
+  }
+  .story-tile__inner{
+    background-color: rgba($color, 0.1);
+  }
+  
+}
+
+.stories-posts{
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: $m-larger;
+}
+.story-tile{
+  position: relative;
+  overflow: hidden;
+  color: $c-white;
+  padding: 8px;
+
+  &__pad{
+    position: relative;
+    overflow: hidden;
+    @include breakpoint(large) {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      @include square(calc(100% - 16px));
+    }
+  }
+
+  &__wrapper{
+    padding: 0;
+    /*
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    */
+  }
+
+  &--text,&--text-big{
+    color: $c-text;
+  }
+
+  &__background{
+    @include fill;
+    z-index: 0;
+
+    .story-tile--text &, .story-tile--text-big &{
+      display: none;
+    }
+    &-regular{
+      @include fill;
+      z-index: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: 1s transform;
+
+      .story-tile:hover & {
+        transform: scale(1.11);
+      }
+    }
+    &-blur{
+      opacity: 0;
+      @include fill;
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(20px);
+      transition: 1s opacity, 1s transform;
+      z-index: 100;
+      transform: scale(1.1);
+      transform-origin: center;
+
+      .story-tile:hover & {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  &__button{
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background-color: $c-green-light;
+    color: $c-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: $fz-smallest;
+    margin-right: auto;
+    @include breakpoint(large) {
+      margin-right: 0;
+      height: 3.9375rem;
+      line-height: 3.9375rem;
+      font-size: $fz-large;
+    }
+    
+    font-family: $ff-gobold;
+    padding: 0 $m-medium;
+    margin-top: $m;
+
+    .story-tile--text &, .story-tile--text-big &{
+      display: none;
+    }
+  }
+
+  &__inner{
+    position: relative;
+    z-index: 200;
+    pointer-events: none;
+
+  }
+
+  &__border{
+    &-wrapper{
+
+      position: absolute;
+      margin: #{$m + $m-small} #{$m + $m-small};
+      top: 0;
+      left: 0;
+      width: calc(100% - #{($m + $m-small)*2});
+      height: calc(100% - #{($m + $m-small)*2});
+
+      z-index: 100;
+
+      opacity: 1;
+      transition: 0.7s opacity, 1s transform;
+      transform: scale(1);
+
+
+
+      .story-tile--text &, .story-tile--text-big &{
+        display: none;
+
+        @include breakpoint(large) {
+          display: block;
+        }
+      }
+
+      .story-tile:hover & {
+        opacity: 0;
+        transform: scale(1.07);
+      }
+
+      .story-tile--text &, .story-tile--text-big &{
+        @include fill;
+        margin: 0;
+        &:before{
+          content: "";
+          @include fill;
+          display: block;
+          background-image: url(../media/uvm-speckle.png);
+          background-size: cover;
+          opacity: 0.2;
+        }
+
+      }
+
+      .story-tile--text-big:hover &, .story-tile--text:hover & {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @include fill;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $c-green-light;
+
+    .story-tile--text &, .story-tile--text-big &{
+      border: none;
+    }
+  }
+  &__icon{
+
+    position: absolute;
+    width: $m-large;
+    height: $m-large;
+    top: 0;
+    right: 0;
+    z-index: 200;
+
+    background-color: $c-green-light;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    background-position: center center;
+  }
+
+  &__expanded,&__intro{
+    @include fill;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    padding: $m-medium $m-medium;
+    @include breakpoint(large) {
+      padding: $m-medium $m-large;
+    }
+  }
+  &__intro{
+    transform: translateY(0)  translateZ(0);
+    opacity: 1;
+    transition: 0.7s opacity, 1s transform;
+
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    .story-tile:hover & {
+      opacity: 0;
+      transform: translateY(-100%) translateZ(0);
+    }
+    &-title{
+
+      font-size: $fz-header-small;
+      @include breakpoint(large) {
+        font-size: $fz-header-medium;
+      }
+      font-family: $ff-gobold;
+      text-transform: uppercase;
+    }
+    &-author{
+      font-size: $fz-small;
+      @include breakpoint(large) {
+        font-size: $fz-large;
+      }
+      font-family: $ff-brownpro;
+      font-weight: $fw-bold;
+      line-height: 1.75;
+    }
+
+    .story-tile--text &, .story-tile--text-big &{
+      display: none;
+    }
+  }
+  &__expanded{
+    opacity: 0;
+    transform: translateY(100%) translateZ(0);
+    transition: 1s opacity, 1s transform;
+    margin-bottom: $m;
+    .story-tile:hover &, .story-tile--text &, .story-tile--text-big & {
+      transform: translateY(0) translateZ(0);
+      opacity: 1;
+    }
+    .story-tile--text &, .story-tile--text-big & {
+      position: relative;
+      @include breakpoint(large) {
+        position: absolute;
+      }
+    }
+    &-title{
+
+      font-size: $fz-small;
+      margin-right: auto;
+      @include breakpoint(large) {
+        font-size: $fz-large;
+        margin-right: 0;
+      }
+      font-family: $ff-brownpro;
+      font-weight: $fw-bold;
+      line-height: 1.6;
+      margin-bottom: $m-small;
+
+      .story-tile--text &, .story-tile--text-big &{
+        font-family: $ff-tiemposheadline;
+        line-height: 1.25;
+      }
+    }
+    &-main{
+      max-width: 34rem;
+      line-height: 1.75;
+      max-height: 4*1.75em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      font-size: $fz-smaller;
+      margin-right: auto;
+      @include breakpoint(large) {
+        overflow: visible;
+        max-height: none;
+        font-size: $fz-medium;
+        margin-right: 0;
+      }
+
+      .story-tile--text &, .story-tile--text-big &{
+        font-size: $fz-regular;
+        font-family: $ff-brownpro;
+      }
+    }
+
+    &-author{
+      
+      display: none;
+
+      .story-tile--text &, .story-tile--text-big &{
+        display: block;
+
+        margin-right: auto;
+        @include breakpoint(large) {
+          margin-right: 0;
+        }
+      }
+
+      font-size: $fz-smaller;
+      font-family: $ff-tiemposheadline;
+      @include breakpoint(large) {
+        display: block;
+        font-size: $fz-large;
+        font-family: $ff-brownpro;
+      }
+      font-weight: $fw-bold;
+      line-height: 1.75;
+      width: 100%;
+
+      max-width: 34rem;
+      text-align: left;
+
+
+      .story-tile--text &, .story-tile--text-big &{
+        font-size: $fz-regular;
+        font-family: $ff-brownpro;
+      }
+
+    }
+  }
+
+  width: 100%;
+  &--wide &__inner, &--tall &__inner, &--wide &__pad, &--tall &__pad{
+    padding-bottom: 92.14501511%;
+  }
+  & &__inner, & &__pad{
+
+    @include breakpoint(large) {
+      padding-bottom: 0;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      @include square(calc(100% - 16px));
+      display: block;
+    }
+  }
+
+  @include breakpoint(large) {
+    width: 30%;
+    float: left;
+    padding-bottom: 29.5%;
+    height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    &--wide{
+      width: 60%;
+    }
+    &--wide &__inner{
+      //padding-bottom: 49%;
+    }
+    &--text &__inner{
+      //padding-bottom: 98%;
+    }
+    &--text-big, &--tall{
+      width: 40%;
+    }
+    &--text-big &__inner{
+      //padding-bottom: 3/4*98%;
+    }
+    &--tall &__inner{
+      //padding-bottom: 6/4*98%;
+      //padding-bottom: 184.84848484%;
+    }
+    &--tall{
+      padding-bottom: 29.5%*2;
+    }
+
+  }
+
+  &--dark-green {
+    @include storyTileTheme($c-green-medium, "../media/uvm-crop.png");
+
+    .story-tile__icon{
+      background-size: 67% auto;
+    }
+  }
+
+
+  &--yellow {
+    @include storyTileTheme($c-yellow,  "../media/uvm-atom.png");
+  }
+
+  &--orange {
+    @include storyTileTheme($c-orange, "../media/uvm-leaf.png");
+  }
+  &--green {
+    @include storyTileTheme($c-green-light,  "../media/uvm-globe.png");
+  }
+}

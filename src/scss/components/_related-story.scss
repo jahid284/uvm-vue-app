@@ -1,0 +1,116 @@
+.related-stories {
+  padding-bottom: $m-larger;
+  background-size: cover;
+  padding-top: 2.3rem;
+  position: relative;
+  .label {
+    font-family: $ff-gobold;
+    text-transform: uppercase;
+    background: $c-green-light;
+    font-size: $fz-large;
+    color: $c-white;
+    max-width: 195px;
+    padding: 12.5px 0;
+    text-align: center;
+    margin: $m-large 0;
+  }
+  .swiper-pagination {
+    position: relative;
+    top: 35px;
+    .swiper-pagination-bullet {
+      margin: 0 7.5px;
+    }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    background-image: none;
+    margin-top: 38px;
+    width: 80px;
+  }
+  
+  article {
+    display: flex;
+    .img-thumb {
+      overflow: hidden;
+      img {
+        transition: all .5s ease-in;
+      }
+    }
+    .story-excerpt {
+      max-width: 300px;
+      background: $c-white;
+      padding: 20px 10px 0 30px;
+      h2 {
+        font-weight: bold;
+        font-size: $fz-regular;
+        font-family: 'TiemposHeadline';
+        font-weight: bold;
+        a {
+          text-decoration: none;
+          color: darken($c-black, 100);
+          display: block;
+          transition: all .5s ease;
+        }
+      }
+      p {
+        font-size: $fz-regular;
+        font-family: 'BrownPro';
+        color: $c-grey-darker;
+      }
+    }
+    &:hover {
+      .img-thumb {
+        img {
+          transform: scale(1.2);
+          opacity: .8;
+        }
+      }
+      h2 {
+        a {
+          color: darken($c-green, 5);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:520px) {
+  .related-stories article {
+    flex-direction: column;
+    .story-excerpt {
+      max-width: 100%;
+    }
+    .img-thumb img {
+      width: 100%;
+    }
+  }
+}
+@media(max-width: 850px) {
+  .related-stories article {
+    justify-content: center;
+  }
+}
+@media(min-width: 851px) and (max-width: 1189px){
+  .related-stories article .story-excerpt {
+    padding: 5px 5px 0 8px;
+  }
+  .related-stories article .story-excerpt p {
+    margin-top: 0;
+    font-size: 0.75rem;
+  }
+}
+@media(min-width: 1190px) and (max-width: 1380px) {
+  .related-stories article .story-excerpt {
+    padding: 11px 10px 0 30px;
+  }
+}
+@media(min-width: 1200px) {
+  .related-stories .swiper-pagination {
+    display: none;
+  }
+}
+@media(max-width: 1200px) {
+   .related-stories .swiper-button-prev, .related-stories .swiper-button-next {
+    display: none;
+  }
+}
+

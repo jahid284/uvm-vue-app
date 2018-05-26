@@ -1,0 +1,72 @@
+.footer {
+  padding: 2rem 0 1rem 0;
+  background: url("../media/footer-bg.jpg") center center no-repeat $c-lime-green;
+  background-size: cover;
+
+  .social-icons {
+    margin-top: 0.8rem;
+    float: right;
+    margin-right: 0.5rem;
+  }
+}
+@include breakpoint (small only) {
+  .social-media-footer_container {
+    width: 17rem;
+    margin: 0 auto;
+  }
+
+  li {
+    text-align: center;
+    width: 80%;
+  }
+
+  .footer {
+    .social-icons {
+      margin-right: 1.8rem;
+    }
+
+    .footer-logo {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  .social-media-footer {
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid $c-green-3;
+    border-top: 2px solid $c-green-3;
+    float: right;
+  }
+
+  .social-media-footer {
+    a {
+      float: right;
+      margin-top: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+
+.nav-footer {
+  margin-top: 1.5rem;
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-family: $ff-brownpro;
+  }
+
+  li:last-child {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+}

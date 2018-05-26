@@ -1,0 +1,50 @@
+/*=======global=============*/
+body {
+  text-rendering: geometricPrecision;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-smoothing: antialiased;
+  font-smoothing: subpixel-antialiased;
+  color: $c-text;
+  font-size: 1em;
+  font-family: $ff-brownpro;
+}
+
+.row {
+  max-width: 1200px;
+}
+
+p {
+  //font-family: $TiemposHeadline;
+  //font-size: 1.3em; -- that isn't a good decision
+  line-height: 1.75;
+}
+
+.container {
+  @include breakpoint(large) {
+    max-width: 1330px;
+    margin: 0 auto;
+  }
+}
+
+section {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+
+.divider{
+
+}
+.button-black {
+    background: $c-black;
+    color: $white;
+    text-decoration: none;
+    padding: 1rem 5rem 1rem 2rem;
+    font-size: 1.2em;
+    display: block;
+    font-family: "Gobold", sans-serif;
+    float: left;
+    margin-top: 1em;
+}

@@ -1,0 +1,777 @@
+.story-template-top{
+  background-color: $c-white;
+  position: relative;
+  z-index: 500;
+}
+
+.story-navigation{
+  position: absolute;
+  //right: 0;
+  top: 0%;
+  //transform: translateY(-50%);
+  width: 100% / 12 * 3;
+  width:  1200px/ 12 * 3;;
+  left: 100% / 12 * 9;
+  z-index: 50;
+  display: none;
+  
+  @include breakpoint(large) {
+    display: block;
+  }
+  &__list{
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__item{
+    display: flex;
+    align-content: center;
+    background-color: $c-grey-light;
+    margin: $m-small 0;
+    padding: $m-small $m-medium;
+    cursor: pointer;
+    min-height: 4rem;
+
+    transition: 0.3s all ease-in-out;
+    &--active, &:hover{
+      background-color: $c-green-dark;
+      color: $c-white;
+    }
+  }
+  &__text{
+    max-width: 12em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.story-section{
+  &__wrapper{
+    overflow: hidden;
+    padding-top: $m-larger * 1.5;
+    margin-top: $m-larger * -1.5;
+    max-width: 100%;
+  }
+  &--last{
+    padding-bottom: $m-medium;
+  }
+  &__end{
+    margin-bottom: $m-giant;
+  }
+  &__title{
+
+  }
+  &__quote{
+    font-size: $fz-header-medium;
+    color: $c-orange;
+    font-family: $ff-tiemposheadline;
+    font-weight: $fw-bold;
+    line-height: 1.4;
+    @include breakpoint(large) {
+      white-space: nowrap;
+      line-height: 1.75;
+    }
+    margin-bottom: 0;
+    position: relative;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 7rem;
+      height: 0;
+      border-bottom: 4px dotted $c-orange;
+      left: 0;
+      transform: translateX(-100%);
+      top: 50%;
+      margin-top: -1px;
+      margin-left: $m*-1;
+    }
+  }
+  &__side-quote{
+    display: none;
+    font-family: $ff-tiemposheadline;
+    font-size: $fz-header-medium;
+    color: $c-green-dark;
+    font-weight: $fw-bold;
+    position: absolute;
+    left: 27%;
+    transform: /*translateY(-50%)*/ translateX(-100%);
+    //transform: translateX(-100%);
+    width: 27%;
+    padding: 0 0.9375rem;
+    margin-left: #{0.9375rem*-2};
+    margin-top: $m-giant*-1;
+
+    .story-section--alt-color &{
+      color: $c-orange;
+    }
+
+    &:after{
+      content: "";
+      @include fill;
+      background-image: url(../media/uvm-magnetic.png);
+      background-size: cover;
+      background-position: right bottom;
+      opacity: 0.1;
+      width: 100%;
+      height: 150%;
+      top: auto;
+      bottom: $m*-1;
+      left: auto;
+      right: 70%;
+
+    }
+    p{
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      line-height: 1.22;
+    }
+    &-author{
+      color: $c-black;
+      font-size: $fz-small;
+      font-weight: 400;
+    }
+    @include breakpoint(large) {
+      display: block;
+    }
+  }
+  &__inline-quote{
+    text-transform: uppercase;
+    font-family: $ff-gobold;
+    font-size: $fz-header-small;
+    font-weight: $fw-bold;
+    color: $c-green-dark;
+    line-height: 1.29;
+  }
+  &__inline-quote-huge{
+    position: relative;
+    color: $c-white;
+    font-family: $ff-tiemposheadline;
+    font-size: $fz-larger;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: $fw-bold;
+    padding-top: $m-medium;
+    padding-bottom: $m-medium;
+    @include breakpoint(large) {
+
+      margin: $m-large  $m-large*-1;
+      width: calc(100% + #{$m-large*2});
+    }
+    p{
+      position: relative;
+
+      &:before{
+        content: "“";
+        top: 0;
+        left: 0;
+        transform: translateX(-100%) translateY(50%);
+      }
+      &:after{
+        content: "”";
+        bottom: 0;
+        right: 0;
+        transform: translateX(100%) translateY(100%);
+      }
+      &:after,&:before{
+        display: none;
+        @include breakpoint(large) {
+          position: absolute;
+          display: block;
+        }
+        font-family: $ff-tiemposheadline;
+        font-size: 150px;
+        line-height: 50px;
+      }
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width:100vw;
+      left: 50%;
+      margin-left: -50vw;
+      height: 100%;
+      background-color: $c-green-dark;
+      top: 0;
+      z-index: -100;
+    }
+    @include funkyBorder;
+    &:before{
+      left: 50%;
+      margin-left: -50vw;
+    }
+  }
+  &__inline-image{
+    margin-top: $m-large;
+    margin-bottom: $m-medium;
+  }
+  &__photo-quote{
+    &-image{
+      position: relative;
+      max-width: 50%;
+      margin: $m-large auto 0;
+      &-inner{
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+      }
+    }
+    &-main{
+
+      color: $c-orange;
+    }
+    &-text{
+      font-family: $ff-tiemposheadline;
+      font-size: $fz-large;
+      background-color: $c-white;
+      padding: $m-large;
+      margin: $m-large*-1;
+      font-weight: 500;
+      line-height: 1.43;
+    }
+    &-author{
+      font-family: $ff-gobold;
+      font-size: $fz-header-medium;
+      font-weight: $fw-bold;
+      position: relative;
+      margin-left: 30%;
+      margin-top: 0;
+      margin-bottom: $m-medium*-1;
+    }
+    
+    img{
+      border-radius: 50%;
+      overflow: hidden;
+      padding: $m-medium;
+      @include center;
+      z-index: 100;
+    }
+    &-circle{
+      position: absolute;
+      @include square(calc(100% - 2rem));
+      left: 1rem;
+      top: 1rem;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, $c-orange 50%, $c-orange 50%, transparent 50.001%, transparent 100%);
+
+      animation: storyRingRotate 20s -3s ease infinite;
+      animation-direction: reverse;
+    }
+    &-link{
+      display: block;
+      margin: $m auto $m;
+      height: $m-larger*1.5;
+      z-index: 100;
+      position: relative;
+      width: 0;
+      border-left: 3px dotted $c-orange;
+    }
+    &-ring{
+
+
+      @include fill;
+      transform:  rotate(30deg) translate(40%,0%);
+      transform-origin: center center;
+      overflow: hidden;
+      
+      &-wrapper{
+        animation: storyRingRotate 12s ease infinite;
+        @include fill;
+      }
+      &-inner{
+
+        @include fill;
+        transform:translateX(-40%);
+
+      }
+      &-innest{
+
+        @include fill;
+        border: 3px dotted $c-orange;
+        box-sizing: border-box;
+        border-radius: 50%;
+
+      }
+
+    }
+  }
+}
+
+.story-template{
+  h3{
+    text-transform: uppercase;
+    font-family: $ff-gobold;
+    font-size: $fz-larger;
+    max-width: 14em;
+
+    @include breakpoint(large){
+      margin-left: -2rem;
+    }
+  }
+  .story-section{
+    display: flex;
+    flex-direction: column;
+  }
+  .title-wrap{
+    width: 100%;
+  }
+  .paragraph-wrap{
+    position: relative;
+  }
+  .image-wrap{
+    img{
+      position: relative;
+      display: block;
+    }
+    &--full-screen{
+      z-index: 10000;
+    }
+    position: relative;
+    margin-bottom: 10%;
+  }
+
+
+  .image-wrap--full-screen .story-section__full-screen{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .story-section{
+    padding-top: 0;
+    &__full-screen{
+      @include fill;
+      position: fixed;
+      z-index: 100000;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      transition: 0.5s all ease;
+      &-fill{
+        @include fill;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    &__image {
+      position: relative;
+      z-index: 200;
+
+      &-column{
+        position: relative;
+        z-index: 200;
+      }
+      &--0{
+        position: relative;
+        z-index: 200;
+        display: inline-block;
+
+        &:after{
+          content: "";
+          @include fill;
+          z-index: -100;
+          border: 2px dotted $c-orange;
+          right: 0;
+          left: auto;
+          top: auto;
+          width: 30%;
+          bottom: -18%;
+          height: 70%;
+
+
+        }
+      }
+      &--1{
+        top: 10%;
+        margin-bottom: $m-large;
+        @include breakpoint(large) {
+          position: absolute;
+        }
+        
+        right: 0;
+        @include funkyBorder;
+      }
+
+      &-helper {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        top: 15%;
+        height: 75%;
+        @include breakpoint(large) {
+          height: 95%;
+        }
+        background-color: $c-beige;
+
+        &-top,&-bottom{
+          
+          width: 100%;
+          position: absolute;
+          padding-bottom: 2.333333333%;
+          height: 0;
+          background-image: url(../media/uvm-tear-beige.png);
+          background-size: cover;
+          background-position: top center;
+          z-index: -100;
+        }
+        &-top{
+
+          top: 1px;
+
+          transform: translateY(-65%);
+        }
+        
+        &-bottom{
+
+          bottom: 1px;
+          transform: translateY(65%) scaleY(-1);
+        }
+
+        &:after,&:before{
+          content: "";
+          @include fill;
+          background-image: url(../media/uvm-magnetic.png);
+          background-size: cover;
+          opacity: 0.1;
+          width: 30%;
+        }
+        &:after{
+          left: 70%;
+          top: -15%;
+        }
+        &:before{
+          top: 25%;
+          left: auto;
+          right: 70%;
+        }
+      }
+    }
+
+  }
+
+
+  .story-section--two-images {
+
+    .story-section{
+      &__image{
+        &-helper{
+          &-top{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .story-section--two-images-alt.story-section--alt-color {
+
+    .story-section{
+      &__image{
+        &--1{
+          &:after{
+            background-color: $c-orange;
+          }
+        }
+      }
+    }
+  }
+  .story-section--two-images-alt{
+    .image-wrap{
+      margin-bottom: $m-larger*1.5;
+    }
+    .story-section{
+      &__image{
+        &-column{
+          @include breakpoint(large) {
+            display: flex;
+          }
+          
+          position: relative;
+        }
+        &--0{
+          margin-left: auto;
+          display: block;
+
+          @include breakpoint(large) {
+            display: inline-block;
+          }
+          &:after{
+            left: -35%;
+            width: 47%;
+            height: 120%;
+            top: $m*-1;
+            right: auto;
+            border-color: $c-green-dark;
+            z-index: 100;
+          }
+        }
+        &--1{
+          text-align: right;
+          @include breakpoint(large) {
+            text-align: left;
+            display: inline-block;
+            margin-left: 25%;
+            transform: translateX(-100%);
+            top: 50%;
+          }
+          
+          right: auto;
+          left: 0;
+          img{
+            z-index: 100;
+            padding-right: $m;
+            display: inline-block;
+            @include breakpoint(large) {
+              padding-right: $m;
+              display: block;
+            }
+          }
+          &:before{
+            content: none;
+          }
+          &:after{
+            content: "";
+            position: absolute;
+            right: $m*-1/3;
+            margin-right: $m;
+            bottom: $m*-1/3;
+            width: 25%;
+            padding-bottom: 25%;
+            background: $c-green-dark;
+            z-index: 0;
+          }
+        }
+
+        &-helper{
+          left: auto;
+          right: 5%;
+          &-top{
+            display: none;
+          }
+          &:before{
+            display: none;
+          }
+          &:after{
+            top: auto; 
+            bottom: $m-larger*-1;
+            margin-left: 5vw;
+          }
+        }
+      }
+    }
+  }
+  .story-section--center-image{
+    .image-wrap{
+      text-align: center;
+      margin-bottom: $m-large;
+    }
+
+    .story-section{
+      
+      &__image{
+        &-helper{
+          top: -9%;
+          &:before{
+            top: $m-medium*-1;
+            height: 70%;
+          }
+          &:after{
+            display: none;
+          }
+          &-bottom{
+            display: none;
+          }
+        }
+        img{
+          z-index: 200;
+        }
+        &:after{
+          width: 55%;
+          bottom: $m*-1.5;
+          right: $m*-1;
+        }
+
+        &:before{
+          content: "";
+          position: absolute;
+          left: $m*-1/3;
+          bottom: $m*-1/3;
+          width: 15%;
+          padding-bottom: 12%;
+          background: $c-orange;
+          z-index: 100;
+        }
+      }
+    }
+  }
+  .story-section--single-image{
+    .story-section{
+
+      &__image{
+
+        position: relative;
+        z-index: 200;
+        display: inline-block;
+
+        &:after{
+          content: "";
+          @include fill;
+          z-index: 100;
+          border: 2px dotted $c-green-dark;
+          right: 0;
+          left: -2px;
+          top: auto;
+          width: 35%;
+          bottom: -18%;
+          height: 111%;
+
+
+        }
+        &:before{
+          content: "";
+          position: absolute;
+          right: $m*-1/3;
+          bottom: $m*-1/3;
+          width: 20%;
+          padding-bottom: 20%;
+          background: $c-green-dark;
+          z-index: 100;
+        }
+        img{
+          position: relative;
+          z-index: 200;
+        }
+
+        &-inner-helper{
+          &--0{
+            @include fill;
+            top: 5%;
+            left: -6%;
+            background-color: $c-beige;
+            &:after{
+              content: "";
+              width: 100%;
+              position: absolute;
+              padding-bottom: 2.333333333%;
+              height: 0;
+              background-image: url(../media/uvm-tear-beige.png);
+              background-size: cover;
+              background-position: top center;
+              z-index: -100;
+
+              bottom: 1px;
+              transform: translateY(65%) scaleY(-1) scaleX(-1);
+
+            }
+          }
+          &--1{
+            position: absolute;
+            right: -35%;
+            width: 50%;
+            bottom: -18%;
+            padding-bottom: #{90.55441478% * 0.5};
+            background-image: url(../media/uvm-magnetic.png);
+            background-size: cover;
+            opacity: 0.1;
+          }
+        }
+        &-helper{
+          display: none;
+        }
+      }
+    }
+  }
+  .story-section--darker{
+    overflow: visible;
+    background-color: $c-grey-light;
+    padding-top: $m-larger;
+    position: relative;
+    z-index: 0;
+    &:before{
+      content: "";
+      position: absolute;
+      left: 30%;
+      top: $m-large*-1;
+      width: 40%;
+      padding-bottom: #{90.55441478%*0.4};
+      background-image: url(../media/uvm-magnetic.png);
+      background-size: cover;
+      opacity: 0.1;
+    }
+  }
+
+  .story-section--fullwidth{
+    
+    .story-section{
+      padding-top: 0;
+      overflow: hidden;
+      &__image {
+        width: 100%;
+        &:after{
+          display: none;
+        }
+        img{
+          width: 100%;
+        }
+        &-inner{
+          width: 100%;
+          padding-bottom: 35%;
+          background-size: cover;
+          background-position: center center;
+
+        }
+
+        @include funkyBorder;
+        &:before{
+          z-index: 500;
+        }
+
+        &-inner-helper--0{
+          
+          width: 100%;
+          position: absolute;
+          padding-bottom: 2.333333333%;
+          height: 0;
+          background-image: url(../media/uvm-tear-fefefe.png);
+          background-size: cover;
+          background-position: top center;
+          z-index: 700;
+          top: -1px;
+          transform: scale(-1,-1);
+          left: 0;
+          
+        }
+
+        &-helper{
+          display: none;
+        }
+      }
+    }
+
+    .image-wrap{
+      position: relative;
+      margin-bottom: 0;
+
+    }
+  }
+  .story-section--images-below-header{
+    .paragraph-wrap{
+      order: 2;
+    }
+    .image-wrap{
+      order: 1;
+
+    }
+  }
+}
+
+
+@keyframes storyRingRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}

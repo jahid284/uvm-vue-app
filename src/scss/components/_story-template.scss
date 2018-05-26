@@ -1,0 +1,319 @@
+/*=======story template 2=============*/
+$hero-full-screen-bg: url("../media/joseph-gonzalez.png") center center no-repeat;
+$hero-full-screen-bg-size: cover;
+$hero-full-screen-text-color: $white;
+
+.hero-full-screen {
+  height: 37rem;
+  align-items: center;
+  background: $hero-full-screen-bg;
+  background-size: $hero-full-screen-bg-size;
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 6rem;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.hero-full-screen_container {
+  text-align: center;
+
+  h1 {
+    color: $white;
+    margin-top: 8rem;
+    font-family: $ff-gobold;
+    text-transform: uppercase;
+    font-size: 4em;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  @include breakpoint (small only) {
+    h1 {
+      font-size: 3em;
+    }
+  }
+}
+
+.divider {
+  height: 2px;
+  display: block;
+  background-color: $c-grey;
+}
+/*=======support uvm=============*/
+
+.yvonne {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+
+.semi-circle-solid {
+  background: linear-gradient(to bottom, #E46B28 50%, #E46B28 50%, transparent 50.001%, transparent 100%);
+  width: 17.3rem;
+  height: 17.3rem;
+  border-radius: 50%;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 9px;
+  z-index: 0;
+  top: -9px;
+}
+
+.semi-circle-dotted {
+  width: 20rem;
+  height: 20rem;
+  border: 3px dotted #E46B28;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-134deg);
+  position: absolute;
+  top: -30px;
+  left: -18px;
+}
+
+.support-uvm {
+  @include breakpoint (medium large) {
+    p {
+      line-height: 2rem;
+      width: 98%;
+      margin: 0;
+    }
+
+    hr {
+      width: 43rem;
+      float: left;
+      margin-top: 2em;
+    }
+  }
+
+  hr {
+    border: 1px solid $hr;
+  }
+
+  .row {
+    position: relative;
+  }
+
+  .support-uvm_container {
+    margin-left: 6%;
+  }
+}
+
+.button-green {
+  background: $c-green;
+  color: $white;
+  text-decoration: none;
+  padding: 1rem 5rem 1rem 2rem;
+  font-size: 1.2em;
+  display: block;
+  font-family: $ff-gobold;
+  float: left;
+  margin-top: 1em;
+  transform: translateZ(0);
+  transition: 0.3s all ease-in-out;
+  text-transform: uppercase;
+  &:hover{
+    background-color: $c-green-light;
+  }
+}
+/*======= story template 5 =============*/
+.story-template-5 {
+  h1 {
+    margin-bottom: 0.3rem;
+  }
+
+  .young-brain-sub {
+    color: $white;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  .author-young-brain {
+    color: $white;
+    font-weight: 300;
+    margin-top: 0;
+  }
+}
+@include breakpoint (small only) {
+  .hero-full-screen_container {
+    h1 {
+      margin-top: 2rem;
+    }
+  }
+}
+/*======= story template hero component =============*/
+.story-template-hero {
+  padding-top: 6rem;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  color: $c-white;
+  position: relative;
+  .social-media {
+    text-align: center;
+    a {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      display: inline-block;
+
+      svg {
+        @include fill;
+        max-width: 100%;
+        fill: $c-white;
+        transition: 0.3s fill ease-in-out;
+
+      }
+      &:hover svg{
+        fill: $c-orange;
+      }
+    }
+  }
+  &__subheader {
+    font-size: $fz-medium;
+    font-weight: $fw-bold;
+    max-width: 30em;
+    margin: #{$m * -1} auto $m-small;
+    line-height: 1.35;
+
+    &--only {
+      line-height: 1.888;
+    }
+  }
+
+  &__author {
+    font-size: $fz-small;
+    margin-bottom: $m;
+  }
+
+  &__scroll {
+    display: flex;
+    justify-content: space-between;
+    width: 6.2rem;
+    border: 2px solid $c-white;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    box-sizing: padding-box;
+    overflow: hidden;
+    position: absolute;
+    bottom: $m-larger;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    backface-visibility: hidden;
+    cursor: pointer;
+
+    &-label {
+      display: inline-block;
+      text-transform: uppercase;
+      font-family: $ff-gobold;
+      font-size: $fz-small;
+      padding-left: $m-small;
+      padding-right: $m-small;
+      height: 2.3rem;
+      line-height: 2.2rem;
+      position: relative;
+      transform: translateZ(0);
+      transition: 0.3s color ease-in-out;
+      &:before {
+        content: "";
+        @include fill;
+        width: calc(100% + 2px);
+        left: -1px;
+        background-color: $c-white;
+        transform: translateY(-100%);
+        z-index: -100;
+        transition: 0.3s transform ease-in-out;
+
+      }
+    }
+
+    &-arrow {
+      display: inline-block;
+      border-left: 2px solid $c-white;
+      font-size: $fz-medium;
+      position: relative;
+      pointer-events: none;
+
+      &-animation {
+        box-sizing: padding-box;
+        height: 2.3rem;
+        line-height: 2.3rem;
+        padding-left: 0.55rem;
+        padding-right: 0.55rem;
+        animation: heroArrowAnimation 3s -1s infinite ease both;
+
+        &:nth-of-type(2) {
+          @include fill;
+          animation: heroArrowAnimation 3s -2s infinite ease both;
+        }
+
+        &:nth-of-type(3) {
+          @include fill;
+          animation: heroArrowAnimation 3s 0s infinite ease both;
+        }
+      }
+
+      &-animation:nth-of-type(1) &-inner {
+        opacity: 1;
+      }
+
+      &-inner {
+        transform: translateX(-0.05rem) rotate(90deg);
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+    }
+
+    &:not(:hover) &-arrow-animation {
+      animation: none;
+    }
+
+    &:hover &-arrow-inner {
+      opacity: 1;
+    }
+    &:hover &-label{
+      color: $c-green;
+      &:before{
+        transform: translateY(0);
+      }
+    }
+  }
+}
+@keyframes heroArrowAnimation {
+  0% {
+    transform: translateY(-1.2rem);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+}
+/*======= story template 3 =============*/
+
+.support-uvm {
+  .highlited-text {
+    p {
+      font-family: $TiemposHeadline;
+      font-size: 1.8em;
+      font-weight: 500;
+      line-height: 2.4rem;
+    }
+  }
+}

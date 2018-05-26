@@ -1,0 +1,90 @@
+/*
+  colors
+  $c = color
+ */
+
+$c-black: #282828;
+$c-white: #fffefe;
+$c-green: #0a7256;
+$c-green-medium: #174929;
+$c-green-lighter: #8ec945;
+$c-green-light: #66ac47;
+$c-green-dark: #0a7256;
+$c-grey-light: #f6f5f5;
+$c-grey-mid-light: #c9c9c9;
+$c-grey: #c1c1c1;
+$c-grey-mid: #b7b7b7;;
+$c-grey-dark: #525251;
+$c-grey-darker: #464646;
+$c-orange: #E46B28;
+$c-orange-light: #db6610;
+$c-yellow: #cdab36;
+$c-text: $c-black;
+$c-first-letter: $c-green;
+$c-lime-green: #66ac47;
+$c-yellow-2: #f7bc3c;
+$c-green-2: #0a7256;
+$c-green-3: #A3C583;
+$c-beige: #dfdcc9;
+/*
+  fonts
+  $fz = font size
+  $ff = font family
+  $fw = font weight
+ */
+/*********************
+ maintext fonts
+ *********************/
+$TiemposHeadline: 'TiemposHeadline';
+
+$ff-tiemposheadline: 'TiemposHeadline';
+$ff-tiemposheadline-black: 'TiemposHeadline-Black';
+$ff-gobold: 'Gobold', sans-serif;
+$ff-brownpro: 'BrownPro', sans-serif;
+
+
+$fz-smallest:0.743125rem; //11.89pt
+$fz-smaller:0.84375rem; //13.5pt
+$fz-small:0.9375rem; // 15pt
+$fz-regular: 1rem; /// counting 16pt in photoshop as base
+$fz-regular-plus: 1.0625rem; /// 17pt in ps
+$fz-medium: 1.125rem; /// 18pt in ps
+$fz-large: 1.25rem; /// 20pt in ps
+$fz-large-more: 1.563rem; //25pt
+$fz-larger: 1.875rem; /// 30pt in ps
+$fz-header-small: 2.1875rem; /// 35pt
+$fz-header-medium: 2.8125rem; /// 45pt
+$fz-header-large: 3.4375rem; /// 55pt
+$fz-large-extra: 4.063rem; //65pt
+$fz-header-giant: 4.6875rem; /// 75pt
+
+$fw-bold: 700;
+$fw-medium: 500;
+
+/*********************
+maintext colors
+*********************/
+$global-text-shadow: 1px 1px 1px #000;
+$main-color: $c-black;
+$first-letter: $c-first-letter;
+
+
+/*
+  margin
+*/
+
+$m: 1rem;
+$m-small: $m/2;
+$m-medium: $m*2;
+$m-large: $m*3;
+$m-larger: $m*4;
+$m-giant: $m*8;
+
+/*********************
+seperator
+ *********************/
+$hr: #e8e8e8;
+/*********************
+button
+ *********************/
+ $c-green: #037355;
